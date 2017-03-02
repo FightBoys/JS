@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>右键菜单栏</title>
+    <style>
+    #menu{
+        width: 120px;
+        height: 240px;
+        display: none;
+        position: absolute;
+        border: 1px solid  #aaa;
+        top: 0px;
+        right: 0px;
+    }
+    #menu ul{
+        list-style: none;
+        padding-left: 0px;
+        margin-top: 0px;
+    }
+    #menu ul li{
+        width: 120px;
+        height: 24px;
+        background: #fff;
+        margin-left: 18px;
+    }
+    #menu ul li a{
+         text-decoration: none;
+         font-family: '楷体';
+         font-size: 18px;
+         cursor: pointer;
+
+    }
+     #menu ul li a:hover{
+        color: #aaa;
+     }
+    </style>
+</head>
+<body>
+    <div  id="menu">
+    <ul>
+    <li><a href="">后退</a></li>
+    <li><a href="">前进</a></li>
+    <li><a href="">刷新</a></li>
+    <li><a href="">全选</a></li>
+    <li><a href="">添加到收藏夹</a></li>
+    <li><a href="">打印</a></li>
+    <li><a href="">查看源码</a></li>
+    <li><a href="">发送</a></li>
+    <li><a href="">属性</a></li>
+    <li><a href="">审查属性</a></li>
+    </ul>
+    </div>
+</body>
+<script>
+      document.oncontextmenu=function(event){
+        x=event.clientX;
+        y=event.clientY;
+        menu.style.left=x+15+'px';
+         menu.style.top=y+15+'px';
+         menu.style.display='inline';
+     return false;//将原有的菜单栏隐藏起来
+    }
+    //点击菜单栏中的属性，掩藏菜单栏
+    menu.onclick=function(){
+        this.style.display='none';
+    }
+     //点击左键，掩藏菜单栏
+    document.onclick=function(){
+        menu.style.display='none';
+    }
+</script>
+</html>
