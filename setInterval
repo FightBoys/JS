@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <style>
+    body{
+        padding: 120px;
+    }
+            #divobj{
+                width: 120px;
+                height: 80px;
+                background: #aac;
+                margin-bottom: 40px;
+            }
+            #stop{
+                width: 40px;
+                height: 30px;
+                background: #aaa;
+            }
+                #star{
+                width: 40px;
+                height: 30px;
+                background: #aaa;
+            }
+    </style>
+</head>
+<body>
+                <div id="divobj">
+                    
+                </div>
+              <button id="star">star</button>
+
+              <button  id="stop">stop</button>
+
+</body>
+<script>
+          i=0;
+          stopobj=document.getElementById('stop');
+          starobj=document.getElementById('star');
+          divobjs=document.getElementById('divobj');
+
+        function start(){ 
+              sobj=setInterval(function(){
+             divobjs.innerHTML=++i;
+             },100);
+           }
+     start();//直接调用start，刷新就直接运行了
+        function  stop(){
+              clearInterval(sobj);
+           }
+  
+         stopobj.onclick=function(){
+               stop();
+            }
+
+         starobj.onclick=function(){
+               start();//通过函数的调用节省了重复的代码量。
+           }
+</script>
+</html>
